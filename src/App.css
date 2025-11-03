@@ -1,0 +1,180 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.app-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: -1px;
+}
+
+.app-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.instructions {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.instruction-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 16px;
+}
+
+.instruction-item:last-child {
+  margin-bottom: 0;
+}
+
+.instruction-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  width: 30px;
+  text-align: center;
+}
+
+.instruction-text {
+  flex: 1;
+}
+
+.instruction-text strong {
+  font-weight: 700;
+  color: #fff;
+}
+
+.permission-message {
+  background: rgba(255, 200, 100, 0.2);
+  border: 2px solid rgba(255, 200, 100, 0.5);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  color: white;
+  text-align: center;
+}
+
+.permission-message h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.permission-message p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.permission-instructions {
+  font-size: 14px;
+  opacity: 0.9;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.visualizer-section {
+  margin-bottom: 30px;
+}
+
+.controls-section {
+  margin-bottom: 30px;
+}
+
+.app-footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.app-footer p {
+  margin-bottom: 5px;
+}
+
+.recording-indicator {
+  font-weight: 600;
+  color: white;
+  animation: pulse-text 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-text {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .app {
+    padding: 15px;
+  }
+
+  .app-title {
+    font-size: 36px;
+  }
+
+  .app-subtitle {
+    font-size: 16px;
+  }
+
+  .instructions {
+    padding: 20px;
+  }
+
+  .instruction-item {
+    font-size: 14px;
+  }
+
+  .instruction-icon {
+    font-size: 20px;
+    width: 25px;
+    margin-right: 10px;
+  }
+}
+
+/* Prevent text selection and scrolling issues on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .app {
+    touch-action: manipulation;
+  }
+
+  * {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  input,
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+

@@ -1,0 +1,170 @@
+.visualizer-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.visualizer-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  font-variant-numeric: tabular-nums;
+}
+
+.visualizer-grid {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.grid-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.grid-line.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.grid-line.vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.axis-label {
+  position: absolute;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.axis-x-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.axis-x-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.axis-y-top {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.axis-y-bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.visualizer-dot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  opacity: 0.5;
+}
+
+.visualizer-dot.active {
+  opacity: 1;
+}
+
+.visualizer-dot::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #fff 0%, #4facfe 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.8),
+              0 0 40px rgba(79, 172, 254, 0.4);
+}
+
+.visualizer-dot.active::before {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.dot-ripple {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(79, 172, 254, 0.6);
+  border-radius: 50%;
+  animation: ripple 2s ease-out infinite;
+}
+
+.visualizer-dot.active .dot-ripple {
+  animation: ripple 1s ease-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .visualizer-grid {
+    height: 300px;
+  }
+  
+  .info-value {
+    font-size: 20px;
+  }
+}
+
