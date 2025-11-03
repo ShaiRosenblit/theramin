@@ -1,0 +1,13 @@
+# Agent Rules for Theramin Project
+
+## Auto-commit and Push
+- **IMPORTANT**: After making any code changes, the agent MUST commit and push them automatically
+- Use descriptive commit messages that explain what was changed
+- Always push to the remote repository after committing
+- The user should never need to manually commit or push agent changes
+
+## Commit Message Format
+- Use clear, descriptive commit messages
+- Format: "Agent: [brief description of changes]"
+- Example: "Agent: Add recording functionality to Controls component"
+
