@@ -1,3 +1,9 @@
+---
+description: Automatically commit and push changes made by the agent
+globs: []
+alwaysApply: true
+---
+
 # Agent Rules for Theramin Project
 
 ## Auto-commit and Push
@@ -10,4 +16,3 @@
 - Use clear, descriptive commit messages
 - Format: "Agent: [brief description of changes]"
 - Example: "Agent: Add recording functionality to Controls component"
-
