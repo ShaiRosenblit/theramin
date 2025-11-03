@@ -1,0 +1,161 @@
+.debug-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  color: #e2e8f0;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+  z-index: 1000;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+  border-top: 2px solid #334155;
+  transition: max-height 0.3s ease;
+}
+
+.debug-panel.collapsed {
+  max-height: 50px;
+}
+
+.debug-panel.expanded {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.debug-toggle {
+  width: 100%;
+  padding: 12px;
+  background: #1e293b;
+  border: none;
+  color: #60a5fa;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.debug-toggle:hover {
+  background: #334155;
+}
+
+.debug-toggle:active {
+  background: #475569;
+}
+
+.debug-content {
+  padding: 16px;
+  max-height: calc(80vh - 50px);
+  overflow-y: auto;
+}
+
+.debug-section {
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.debug-section-title {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 8px;
+}
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.debug-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.debug-label {
+  color: #94a3b8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.debug-value {
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.debug-bar {
+  height: 4px;
+  background: #334155;
+  border-radius: 2px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.debug-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  transition: width 0.1s ease;
+}
+
+.debug-timestamp {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #334155;
+  text-align: center;
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* Scrollbar styling */
+.debug-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.debug-content::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.debug-content::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+.debug-content::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .debug-panel {
+    font-size: 11px;
+  }
+  
+  .debug-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .debug-section {
+    padding: 8px;
+  }
+  
+  .debug-content {
+    padding: 12px;
+  }
+}
+

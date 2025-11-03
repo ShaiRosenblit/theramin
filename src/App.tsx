@@ -4,6 +4,7 @@ import { useMotionSensor } from './hooks/useMotionSensor';
 import { useRecorder } from './hooks/useRecorder';
 import { Visualizer } from './components/Visualizer';
 import { Controls } from './components/Controls';
+import { DebugPanel, DebugData } from './components/DebugPanel';
 import './App.css';
 
 /**
@@ -70,6 +71,13 @@ function App() {
 
   // Motion sensor hook
   const motionSensor = useMotionSensor(handleMotionUpdate);
+
+  // Combine debug data from motion sensor and audio engine
+  const debugData: DebugData = {
+    ...motionSensor.debugData,
+    frequency: audioEngine.pitch,
+    volume: audioEngine.volume
+  };
 
   /**
    * Start theremin (request permissions and start audio)
@@ -209,6 +217,9 @@ function App() {
           )}
         </footer>
       </div>
+
+      {/* Debug Panel */}
+      <DebugPanel data={debugData} />
     </div>
   );
 }
