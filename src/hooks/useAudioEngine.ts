@@ -141,9 +141,11 @@ export const useAudioEngine = () => {
     await initAudio();
     
     if (gainNodeRef.current && !state.isMuted) {
+      // Apply exponential curve for consistent volume behavior
+      const exponentialVol = state.volume * state.volume;
       // Smooth ramp to avoid clicking
       gainNodeRef.current.gain.setTargetAtTime(
-        state.volume,
+        exponentialVol,
         audioContextRef.current!.currentTime,
         0.01
       );
@@ -205,20 +207,25 @@ export const useAudioEngine = () => {
 
   /**
    * Update volume (0.0 - 1.0)
+   * Uses exponential curve for more natural volume control and true silence at 0
    */
   const setVolume = useCallback((vol: number) => {
     const clampedVol = Math.max(0, Math.min(1, vol));
     
-    if (gainNodeRef.current && state.isPlaying) {
+    // Apply exponential curve: volume^2 for more natural perception
+    // This ensures that 0 volume = true silence
+    const exponentialVol = clampedVol * clampedVol;
+    
+    if (gainNodeRef.current) {
       gainNodeRef.current.gain.setTargetAtTime(
-        clampedVol,
+        exponentialVol,
         audioContextRef.current!.currentTime,
         0.01
       );
     }
     
     setState(prev => ({ ...prev, volume: clampedVol }));
-  }, [state.isPlaying]);
+  }, []);
 
   /**
    * Change waveform type
