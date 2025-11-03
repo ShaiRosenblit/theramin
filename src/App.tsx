@@ -10,8 +10,8 @@ import './App.css';
  * Main Theremin App Component
  * 
  * Controls pitch and volume using phone accelerometer:
- * - Gamma (left-right tilt): Controls pitch
- * - Beta (forward-back tilt): Controls volume
+ * - Y-axis (up/down movement): Controls pitch
+ * - X-axis (left/right movement): Controls volume
  */
 function App() {
   const [needsPermission, setNeedsPermission] = useState(false);
@@ -130,13 +130,13 @@ function App() {
             <div className="instruction-item">
               <span className="instruction-icon">📱</span>
               <span className="instruction-text">
-                Tilt <strong>left/right</strong> to change pitch
+                Move phone <strong>up/down</strong> to change pitch
               </span>
             </div>
             <div className="instruction-item">
               <span className="instruction-icon">🔊</span>
               <span className="instruction-text">
-                Tilt <strong>forward/back</strong> to change volume
+                Move phone <strong>left/right</strong> to change volume
               </span>
             </div>
             <div className="instruction-item">
